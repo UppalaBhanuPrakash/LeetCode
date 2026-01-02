@@ -1,0 +1,18 @@
+class Solution {
+public:
+    int absDifference(vector<int>& nums, int k) {
+        int d=0,g_sum=0,m_sum=0;
+        if(nums.size()==k){
+            return d;
+        }
+        sort(nums.begin(),nums.end());
+        int i=0;
+        int n=nums.size();
+        while(k--){
+            g_sum+=nums[n-i-1];
+            m_sum+=nums[i];
+            i++;
+        }
+        return g_sum-m_sum;
+    }
+};
