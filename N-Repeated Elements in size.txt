@@ -1,0 +1,24 @@
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+ /*
+ 1) I have declared a map.
+ 2) While iterating array I have inserted the array value and frequency of that value into map.
+ 3) In last I am iterating through map and checking for the frequency that is greater than one and return the value.
+ */
+var repeatedNTimes = function(nums) {
+    const mp = new Map();
+    let ans = 0;
+
+    for (let i=0;i<nums.length;i++) {
+        mp.set(nums[i],(mp.get(nums[i])||0)+1);
+    }
+      for (let [key, value] of mp) {
+        if (value > 1) {
+            ans = key;
+            break;
+        }
+    }
+    return ans;
+};
