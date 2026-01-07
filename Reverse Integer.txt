@@ -1,0 +1,21 @@
+class Solution {
+public:
+    int reverse(int x) {
+        int rem,c=0;
+        long rev=0,h=x;
+        int d;
+        while(h!=0){
+            c++;
+            h=h/10;
+        }
+        
+        while(x!=0){
+            rem=x%10;
+            rev=rev*10+rem;
+            x=x/10;
+           
+        }
+      if(rev<-2147483648||rev>2147483648)return 0;return rev;
+       
+    }
+};
