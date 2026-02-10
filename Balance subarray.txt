@@ -1,0 +1,17 @@
+class Solution {
+public:
+    int longestBalanced(vector<int>& nums) {
+      int ma=0;
+      for(int i=0;i<nums.size();i++){
+            map<int,int> emp;
+            map<int,int> omp;
+            for(int j=i;j<nums.size();j++){
+                if(nums[j]%2==0)emp[nums[j]]++;
+                else omp[nums[j]]++;
+                if(emp.size()==omp.size())
+                ma=max(ma,j-i+1);
+            }
+      }
+      return ma;
+    }
+};
