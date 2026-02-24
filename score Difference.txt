@@ -1,0 +1,23 @@
+class Solution {
+public:
+    int scoreDifference(vector<int>& nums) {
+        int player1=0,player2=0;
+        bool play1=true;
+        for(int i=0;i<nums.size();i++){
+            if(nums[i]%2!=0){
+              play1=!(play1);
+            }
+            if((i+1)%6==0){
+                play1=!(play1);
+            }
+            if(play1){
+                player1+=nums[i];
+            }
+            else{
+                player2+=nums[i];
+            }
+        }
+        cout<<player1<<player2;
+        return player1-player2;
+    }
+};
