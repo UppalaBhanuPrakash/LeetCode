@@ -1,0 +1,35 @@
+class Solution {
+public:
+    char findKthBit(int n, int k) {
+        string curr="0";
+        int mid=0;
+        string pre;
+        vector<string> v;
+        v.push_back(curr);
+        for(int i=2;i<=n;i++){
+            pre=curr;
+            curr="";
+            for(int j=0;j<=pre.size()*2;j++){
+              if(j<pre.length()){
+                curr+=pre[j];
+              }
+              else if(j==pre.length()){
+                curr+='1';
+                mid=j-1;
+              }else{
+               if(curr[mid]=='1'){
+                curr+='0';
+                mid--;
+               }
+               else{
+                curr+='1';
+                mid--;
+               }
+              }
+            }
+            v.push_back(curr);
+        }
+    
+        return v[n-1][k-1];
+    }
+};
