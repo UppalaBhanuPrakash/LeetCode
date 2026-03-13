@@ -1,0 +1,20 @@
+class Solution {
+public:
+    int countBinarySubstrings(string s) {
+       int pre=0,c=0,ans=0;
+       char curr=s[0];
+       for(int i=0;i<s.length();i++){
+        if(s[i]==curr)c++;
+        else{
+            curr=s[i];
+            ans+=min(c,pre);
+            pre=c;
+            c=1;
+        }
+       }
+       if(c!=0){
+        ans+=min(c,pre);
+       }
+       return ans;
+    }
+};
