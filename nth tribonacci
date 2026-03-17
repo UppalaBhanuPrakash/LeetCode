@@ -1,0 +1,16 @@
+class Solution {
+public:
+    int tribonacci(int n) {
+        int a=0,b=1,c=1,ans=0;
+        if(n==1)return 1;
+        if(n==2)return 1;
+        while(n-3>=0){
+            ans=a+b+c;
+            a=b;
+            b=c;
+            c=ans;
+            n--;
+        }
+        return ans;
+    }
+};
