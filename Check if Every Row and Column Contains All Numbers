@@ -1,0 +1,24 @@
+class Solution {
+public:
+    bool checkValid(vector<vector<int>>& matrix) {
+      
+        int c=0;
+        int n=matrix.size();
+        for(int i=0;i<matrix.size();i++){
+              set<int> st;
+              set<int> st1;
+            for(int j=0;j<matrix[i].size();j++){
+                st.insert(matrix[i][j]);
+                st1.insert(matrix[j][i]);
+            }
+            if(st.size()==n&&st1.size()==n){
+                continue;
+                cout<<i<<st.size()<<st1.size();
+            }
+            else{
+                return false;
+            }
+        }
+        return true;
+    }
+};
