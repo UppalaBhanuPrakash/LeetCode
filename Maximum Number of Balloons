@@ -1,0 +1,23 @@
+class Solution {
+public:
+    int maxNumberOfBalloons(string text) {
+        map<char,int> mp;
+        int c=0;
+        for(int i=0;i<text.length();i++){
+            if(text[i]=='b'||text[i]=='a'||text[i]=='l'||text[i]=='o'||text[i]=='n'){
+             mp[text[i]]++;
+            }
+        }
+        if(mp.size()==5){
+        while(mp['b']>0&&mp['a']>0&&mp['l']>1&&mp['o']>1&&mp['n']>0){
+            mp['b']--;
+            mp['a']--;
+            mp['l']-=2;
+            mp['o']-=2;
+            mp['n']--;
+            c++;        
+        }
+        }
+        return c;
+    }
+};
