@@ -1,0 +1,18 @@
+class Solution {
+public:
+    int numberOfBeams(vector<string>& bank) {
+        int ones=0,prev=0,sum=0;
+        for(int i=0;i<bank.size();i++){
+            ones=0;
+            for(int j=0;j<bank[i].size();j++){
+                if(bank[i][j]=='1')ones++;
+            }
+             if(i!=0){
+                sum=sum+(ones*prev);
+            }
+            if(ones!=0)
+            prev=ones;
+        }
+        return sum;
+    }
+};
