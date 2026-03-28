@@ -1,0 +1,40 @@
+class Solution {
+public:
+    int lenLongestFibSubseq(vector<int>& arr) {
+        unordered_map<int, int> hm;
+        int result = 0;
+        for(int i=0; i<arr.size();i++){
+            hm[arr[i]] = 0;
+        }
+
+        for(int i=0;i<arr.size();i++){
+            vector<int> li;
+
+            for(int j=i+1; j<arr.size();j++){
+                int x = arr[i];
+                int y = arr[j];
+
+                if(hm.find(x+y)!=hm.end()){
+                    bool flag = true;
+
+                    li.push_back(arr[i]);
+                    li.push_back(arr[j]);
+                    li.push_back(x + y);
+
+                    while(flag){
+                        int size = li.size();
+                        int z=li[size-1]+li[size - 2];
+                        if(hm.find(z) != hm.end()){
+                            li.push_back(z);
+                        } else {
+                            flag = false;
+                        }
+                    }
+                }
+                result =max(result,(int)li.size());
+                li.clear();
+            }
+        }
+        return result;
+    }
+};
