@@ -1,0 +1,14 @@
+class Solution {
+public:
+    bool canBeEqual(string s1, string s2) {
+        string a="",c="",b="";
+        a=a+s1[2]+s1[3]+s1[0]+s1[1];
+        b=b+s1[0]+s1[3]+s1[2]+s1[1];
+        c=c+s1[2]+s1[1]+s1[0]+s1[3];
+        //d=s1;
+        if(a==s2||b==s2||c==s2||s1==s2)
+            return true;
+        else
+            return false;
+    }
+};
