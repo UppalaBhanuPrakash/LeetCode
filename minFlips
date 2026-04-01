@@ -1,0 +1,24 @@
+class Solution {
+public:
+    int minFlips(vector<vector<int>>& grid) {
+         int m=grid[0].size(),n=grid.size();
+        int c=0,d=0;
+        for(int i=0;i<grid.size();i++){
+            for(int j=0;j<grid[i].size()/2;j++){
+                if(grid[i][j]!=grid[i][m-j-1]){
+                    c++;
+            
+                }
+            }
+        }
+         for(int i=0;i<grid[0].size();i++){
+            for(int j=0;j<grid.size()/2;j++){
+                if(grid[j][i]!=grid[n-j-1][i]){
+                    d++;
+                }
+            }
+        }
+      
+        return min(c,d);
+    }
+};
