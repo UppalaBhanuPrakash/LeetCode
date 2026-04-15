@@ -1,0 +1,42 @@
+class Solution {
+public:
+    int closestTarget(vector<string>& words, string target, int startIndex) {
+           int j=startIndex,k=startIndex,g=0,c=0,f=0,h=0;
+      
+            while(words[j]!=target){
+                if(j==0){
+                    j=words.size()-1;
+                }
+                else{
+                    j--;
+                }
+                if(j==startIndex&&c!=0){
+                    f=1;
+                    break;
+                }
+                c++;
+                cout<<c;
+            }
+           
+               while(words[k]!=target){
+                if(k==words.size()-1){
+                    k=0;
+                }
+                else{
+                    k++;
+                }
+                if(k==startIndex&&g!=0)
+                {
+                    h=1;
+                    break;
+                }
+                g++;
+                cout<<g;
+            }
+            
+        
+        if(f==0&&h==0)return min(c,g);
+        return -1;
+
+    }
+};
