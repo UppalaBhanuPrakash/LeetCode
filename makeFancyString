@@ -1,0 +1,20 @@
+class Solution {
+public:
+    string makeFancyString(string s) {
+       string s1=""; 
+       int c=0;
+       char cu=s[0];
+       for(int i=0;i<s.length();i++){
+        if(cu==s[i]&&c<2){
+            s1+=s[i];
+            c++;
+        }else if(cu!=s[i]){
+            c=0;
+            s1+=s[i];
+            cu=s[i];
+            c++;
+        }
+       }
+       return s1;
+    }
+};
