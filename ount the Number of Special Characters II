@@ -1,0 +1,31 @@
+class Solution {
+public:
+    int numberOfSpecialChars(string word) {
+        unordered_map<char, int> hm;
+        unordered_set<char> hs;
+        for (int i = 0; i < word.length(); i++) {
+            char ch = word[i];
+
+            if (ch >= 'A' && ch <= 'Z') {
+                if (hm.find(ch) == hm.end()) {
+                    hm[ch] = i;
+                }
+            } 
+            else {
+                hm[ch] = i;
+                hs.insert(ch);
+            }
+        }
+        int ans = 0;
+        for (char ch : hs) {
+            char cch = ch - 32; 
+            if (hm.find(cch) != hm.end()) {
+                if (hm[ch] < hm[cch]) {
+                    ans++;
+                }
+            }
+        }
+
+        return ans;
+    }
+};
