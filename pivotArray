@@ -1,0 +1,23 @@
+class Solution {
+public:
+    vector<int> pivotArray(vector<int>& nums, int pivot) {
+        int less = 0, equal = 0;
+        for (int x : nums) {
+            if (x < pivot) less++;
+            else if (x == pivot) equal++;
+        }
+        vector<int> v(nums.size());
+        int i = 0;
+        int j = less;            
+        int k = less + equal;     
+        for (int x : nums) {
+            if (x < pivot)
+                v[i++] = x;
+            else if (x == pivot)
+                v[j++] = x;
+            else
+                v[k++] = x;
+        }
+        return v;
+    }
+};
